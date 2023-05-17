@@ -1,10 +1,15 @@
 class Pokemon:
-    def __init__(self, attack, hp, speed):
+    def __init__(self, name, attack, hp, speed):
+        self._name = name
         self._attack = attack
         self._hp = hp
         self._speed = speed
 
         # GETTERS
+
+    @property
+    def name(self):
+        return self._name
 
     @property
     def attack(self):
@@ -20,8 +25,8 @@ class Pokemon:
 
 
 class Water(Pokemon):
-    def __init__(self, attack, hp, speed, specialFire):
-        super().__init__(attack, hp, speed)
+    def __init__(self, name, attack, hp, speed, specialFire):
+        super().__init__(name, attack, hp, speed)
         self._specialFire = specialFire
 
     @property
@@ -30,8 +35,8 @@ class Water(Pokemon):
 
 
 class Grass(Pokemon):
-    def __init__(self, attack, hp, speed, specialWater):
-        super().__init__(attack, hp, speed)
+    def __init__(self, name, attack, hp, speed, specialWater):
+        super().__init__(name, attack, hp, speed)
         self._specialWater = specialWater
 
     @property
@@ -40,31 +45,11 @@ class Grass(Pokemon):
 
 
 class Fire(Pokemon):
-    def __init__(self, attack, hp, speed, specialGrass):
-        super().__init__(attack, hp, speed)
+    def __init__(self, name, attack, hp, speed, specialGrass):
+        super().__init__(name, attack, hp, speed)
         self._specialGrass = specialGrass
 
     @property
     def specialgrass(self):
         return self._specialGrass
-
-
-    #PLANTAS
-bulbasaur = Grass(30, 30, 30, 40)
-ivysaur = Grass(40, 40, 40, 50)
-venusaur = Grass(50, 50, 50, 60)
-
-    #AGUA
-squirtle = Water(30, 30, 30, 30)
-wartortle = Water(40, 40, 40, 40)
-blastoise = Water(50, 50, 50, 50)
-
-    #FOGO
-charmander = Fire(40, 30, 40, 40)
-charmeleon = Fire(40, 40, 50, 50)
-charizard = Fire(50, 50, 60, 70)
-
-print(bulbasaur.hp)
-
-
 
