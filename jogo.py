@@ -3,14 +3,13 @@ from random import choice
 from random import randint
 from pokedex import Grass, Water, Fire
 
-
-    #PLANTAS
+# PLANTAS
 bulbasaur = Grass("Bulbasaur", 11, 45, 45, 40)
 
-    #AGUA
+# AGUA
 squirtle = Water("Squirtle", 10, 44, 46, 30)
 
-    #FOGO
+# FOGO
 charmander = Fire("Charmander", 9, 39, 65, 40)
 
 
@@ -45,68 +44,65 @@ def randompc():
 def battle():
     p = choosepokemon()
     x = randompc()
-    pcName = x.name
-    pcAttack = x.attack
-    pcHp = x.hp
-    pcSpeed = x.speed
+    pc_name = x.name
+    pc_attack = x.attack
+    pc_hp = x.hp
+    pc_speed = x.speed
     if x.name == "Bulbasaur":
-        pcSpecial = x.specialwater
+        pc_special = x.specialwater
     elif x.name == "Squirtle":
-        pcSpecial = x.specialfire
+        pc_special = x.specialfire
     else:
-        pcSpecial = x.specialgrass
+        pc_special = x.specialgrass
     # print(x.name)
     time.sleep(1)
     print(f"My pokemon is {x.name}")
     time.sleep(1)
 
-    pokemonName = p.name
-    pokemonAttack = p.attack
-    pokemonHp = p.hp
-    pokemonSpeed = p.speed
+    pokemon_name = p.name
+    pokemon_attack = p.attack
+    pokemon_hp = p.hp
+    pokemon_speed = p.speed
     if p.name == "Bulbasaur":
-        pokemonSpecial = p.specialwater
+        pokemon_special = p.specialwater
     elif p.name == "Squirtle":
-        pokemonSpecial = p.specialfire
+        pokemon_special = p.specialfire
     else:
-        pokemonSpecial = p.specialgrass
+        pokemon_special = p.specialgrass
 
-    # print(f'{pokemonName}')
-
-    if pokemonSpeed > pcSpeed:
+    if pokemon_speed > pc_speed:
         print("Your pokemon have a overspeed, so you will start")
         time.sleep(1)
         print(" ")
-        print(f"Your life is {pokemonHp}")
+        print(f"Your life is {pokemon_hp}")
         print(" ")
-        print(f"My life is {pcHp}")
+        print(f"My life is {pc_hp}")
         print(" ")
-        i = 0
-        while i == 0:
-            i = 0
+
+        while True:
             attack = input("Type 1 for attack: ")
             if attack == "1":
                 print("Attacking...")
-                time.sleep(1)
-                pcHp = pcHp - pokemonAttack
-                print(f"My life is {pcHp}")
-                if pcHp <= 0:
+                print(" ")
+                time.sleep(2)
+                pc_hp = pc_hp - pokemon_attack
+                print(f"My life is {pc_hp}")
+                if pc_hp <= 0:
                     time.sleep(1)
-                    print("My life is 0, you win!")
+                    print(f"My life is {pc_hp}, you win!")
                     break
                 print("I will attack you!!")
                 print("Attacking...")
-                time.sleep(1)
-                pokemonHp = pokemonHp - pcAttack
-                print(f"Your life is {pokemonHp}")
-                if pokemonHp <= 0:
-                    time.sleep(1)
-                    print("Your life is 0, I win!")
-                    break
-            else:
                 print(" ")
-                i = 1
-    elif pokemonSpeed == pcSpeed:
+                time.sleep(2)
+                pokemon_hp = pokemon_hp - pc_attack
+                print(f"Your life is {pokemon_hp}")
+                if pokemon_hp <= 0:
+                    time.sleep(1)
+                    print(f"Your life is {pokemon_hp}, I win!")
+                    break
+
+    elif pokemon_speed == pc_speed:
         print("Our pokemons have the same speed, so I will choose who is start")
         print(" ")
         time.sleep(1)
@@ -114,24 +110,27 @@ def battle():
         while True:
             if choose == 0:
                 print("You start!")
+
                 attack = input("Type 1 for attack: ")
                 if attack == "1":
                     print("Attacking...")
+                    print(" ")
                     time.sleep(1)
-                    pcHp = pcHp - pokemonAttack
-                    print(f"My life is {pcHp}")
-                    if pcHp <= 0:
+                    pc_hp = pc_hp - pokemon_attack
+                    print(f"My life is {pc_hp}")
+                    if pc_hp <= 0:
                         time.sleep(1)
-                        print("My life is 0, you win!")
+                        print(f"My life is {pc_hp}, you win!")
                         break
                     print("I will attack you!!")
                     print("Attacking...")
+                    print(" ")
                     time.sleep(1)
-                    pokemonHp = pokemonHp - pcAttack
-                    print(f"Your life is {pokemonHp}")
-                    if pokemonHp <= 0:
+                    pokemon_hp = pokemon_hp - pc_attack
+                    print(f"Your life is {pokemon_hp}")
+                    if pokemon_hp <= 0:
                         time.sleep(1)
-                        print("Your life is 0, I win!")
+                        print(f"Your life is {pokemon_hp}, I win!")
                         break
                 else:
                     print(" ")
@@ -139,54 +138,55 @@ def battle():
                 print("I will start!")
                 time.sleep(1)
                 print("Attacking...")
+                print(" ")
                 time.sleep(1)
-                pokemonHp = pokemonHp - pcAttack
-                print(f"Your life is {pokemonHp}")
-                if pokemonHp <= 0:
+                pokemon_hp = pokemon_hp - pc_attack
+                print(f"Your life is {pokemon_hp}")
+                if pokemon_hp <= 0:
                     time.sleep(1)
-                    print("Your life is 0, I win!")
+                    print(f"Your life is {pokemon_hp}, I win!")
                     break
                 attack = input("Type 1 for attack: ")
                 if attack == "1":
                     print("Attacking...")
+                    print(" ")
                     time.sleep(1)
-                    pcHp = pcHp - pokemonAttack
-                    print(f"My life is {pcHp}")
-                    if pcHp <= 0:
+                    pc_hp = pc_hp - pokemon_attack
+                    print(f"My life is {pc_hp}")
+                    if pc_hp <= 0:
                         time.sleep(1)
-                        print("My life is 0, you win!")
+                        print(f"My life is {pc_hp}, you win!")
                         break
                 else:
                     print(" ")
-    elif pokemonSpeed < pcSpeed:
+    elif pokemon_speed < pc_speed:
         print("My pokemon have a overspeed, so I will start")
         print(" ")
         time.sleep(1)
-        print(f"Your life is {pokemonHp}")
+        print(f"Your life is {pokemon_hp}")
         print(" ")
-        print(f"My life is {pcHp}")
+        print(f"My life is {pc_hp}")
         print(" ")
         while True:
             print("Attacking...")
+            print(" ")
             time.sleep(1)
-            pokemonHp = pokemonHp - pcAttack
-            print(f"Your life is {pokemonHp}")
-            if pokemonHp <= 0:
+            pokemon_hp = pokemon_hp - pc_attack
+            print(f"Your life is {pokemon_hp}")
+            if pokemon_hp <= 0:
                 time.sleep(1)
-                print("Your life is 0, I win!")
+                print(f"Your life is {pokemon_hp}, I win!")
                 break
             attack = input("Type 1 for attack: ")
             if attack == "1":
                 print("Attacking...")
+                print(" ")
                 time.sleep(1)
-                pcHp = pcHp - pokemonAttack
-                print(f"My life is {pcHp}")
-                if pcHp <= 0:
+                pc_hp = pc_hp - pokemon_attack
+                print(f"My life is {pc_hp}")
+                if pc_hp <= 0:
                     time.sleep(1)
-                    print("My life is 0, you win!")
+                    print(f"My life is {pc_hp}, you win!")
                     break
             else:
                 print(" ")
-
-
-battle()
