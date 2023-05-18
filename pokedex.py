@@ -52,4 +52,3 @@ class Fire(Pokemon):
     @property
     def specialgrass(self):
         return self._specialGrass
-
